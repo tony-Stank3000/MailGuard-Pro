@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Validation</title>
+</head>
+<body>
+    <h1>Email Validation</h1>
+    <form method="post">
+        <textarea name="email_list" rows="10" cols="40" placeholder="Enter email addresses (one per line)"></textarea>
+        <br>
+        <input type="submit" value="Validate">
+    </form>
+    <h2>Validation Results</h2>
+    <table>
+        <tr>
+            <th>Email Address</th>
+            <th>Validation Result</th>
+        </tr>
+        {% for email, is_valid, is_catchall in result %}
+            <tr>
+                <td>{{ email }}</td>
+                <td>{{ "Valid" if is_valid else "Invalid" }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
